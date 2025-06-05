@@ -2,10 +2,9 @@ package job
 
 import (
 	"context"
-	"sync"
 )
 
 type Worker interface {
-	ClaimWork(jobs <-chan Ticket, results chan<- Result, wg *sync.WaitGroup)
+	ClaimWork(jobs <-chan Ticket, results chan<- Result)
 	StartWork(ctx context.Context)
 }
